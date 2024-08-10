@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { bgColors } from "./styles/Theme";
+import { Box, styled, Grid } from "@mui/material";
+import Header from "./component/Header";
+import Email from "./screens/email/Email";
+import PublicRoutes from "./routes/public route/PublicRoutes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box className="h-screen">
+      <Header />
+      <PublicRoutes />
+    </Box>
   );
 }
 
