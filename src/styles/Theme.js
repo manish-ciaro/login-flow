@@ -30,7 +30,7 @@ const GlobleStyle = styled(Box)({
   "& .main-container": {
     backgroundColor: "#3498db",
     width: "100vw",
-    height: "100vh",
+    height: "92vh",
     overflow: "hidden",
 
     // display: 'flex',
