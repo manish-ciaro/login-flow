@@ -2,6 +2,7 @@ import { Box, styled } from "@mui/material";
 
 const bgColors = {
   lightBlue: "#A4ECDA",
+  darkgreen:'#008C87',
   skyBlue: "#00D9D2",
 };
 const colors = {
@@ -11,7 +12,7 @@ const colors = {
 const fontSize = {
   h2: "3rem",
   h3: "2.25rem",
-  h4: "1.25rem",
+  h4: "1.25rem", //20px
   h5: "1rem", //16px
   h6: "0.9rem", //14px
   h7: "0.8rem", //12px
@@ -21,6 +22,7 @@ const fontWeight = {
   extrabold: 800,
   bold: 700,
   semibold: 600,
+  medium:500,
   p1: 400,
 };
 
@@ -28,7 +30,7 @@ const GlobleStyle = styled(Box)({
   "& .main-container": {
     backgroundColor: "#3498db",
     width: "100vw",
-    height: "92vh",
+    height: "100vh",
     overflow: "hidden",
 
     // display: 'flex',

@@ -10,7 +10,7 @@ export default function CustomeButton(props) {
         <Button
           style={{
             borderRadius: "20px",
-            backgroundColor: bgColors.skyBlue,
+            backgroundColor: bgColors.darkgreen,
             color: colors.white,
             fontWeight: fontWeight.semibold,
             fontSize: fontSize.h6,

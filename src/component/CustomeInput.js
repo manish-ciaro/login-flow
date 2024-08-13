@@ -1,4 +1,4 @@
-import { Box, colors, styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import React from "react";
 import { fontSize, fontWeight } from "../styles/Theme";
 

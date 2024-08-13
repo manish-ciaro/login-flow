@@ -8,26 +8,25 @@ import {
 import { Box, styled, Grid, Typography, Link } from "@mui/material";
 import Input from "../../component/CustomeInput";
 import CustomeButton from "../../component/CustomeButton";
-import secondImg from "../../assest/image02.png";
+import forgotPasswordImg from "../../assest/forgot-password.png";
 import eclipse from "../../assest/eclipse.svg";
 import { useNavigate } from "react-router";
 
-export default function Password() {
+export default function ForgotPassword() {
   const navigate = useNavigate();
-
   return (
     <GlobleStyle>
-      <PasswordBoxStyle>
+      <ForgotPassStyle>
         <Box className="main-container">
           <Grid container style={{ backgroundColor: bgColors.lightBlue }}>
             <Grid item md={6} xl={6} lg={6}>
               <Box className="relative flex items-center h-[100vh]">
                 <img
-                  src={secondImg}
-                  alt="Password screen image"
+                  src={forgotPasswordImg}
+                  alt="Password-screen"
                   className="z-10 absolute w-[38vw] h-auto"
                 />
-                <img
+                <img alt="eclipse"
                   src={eclipse}
                   className=" h-[100vh] w-[50vw] relative bottom-14 z-0 2xl:bottom-16 "
                 />
@@ -36,27 +35,31 @@ export default function Password() {
             <Grid item md={5} xl={5} lg={5} className="centered-box-container">
               <Box className="centered-box h-4/6 2xl:h-2/3 xl:ml-6 ">
                 <Box className="h-4/5 flex flex-col justify-around ">
-                  <Box className="welcome-text">
-                    <Typography className="welcome-text p-5">
-                      Welcome Back Aditya
+                  <Box className="">
+                    <Typography className="forgot-pass-text p-5">
+                      FORGOT PASSWORD?
+                    </Typography>
+                    <Typography className="p-5 pt-0 sub-heading-text">
+                      No worries, we’ll send you reset link to <br />{" "}
+                      adi***@gmail.com
                     </Typography>
                   </Box>
-                  <Input placeholder="Enter your password" />
+                  <Input placeholder="Enter your email" />
                   <Box className="link-box">
-                    <Link href="/forgot_password" className="link-tag" >
+                    <Link href="/forgot_password" className="link-tag">
                       <Typography className="link-text">
-                        Forgot your password?
+                        Resend link after 60 seconds
                       </Typography>
                     </Link>
                     <Link className="link-tag">
                       <Typography className="link-text">
-                        Login without using Email
+                        Forgot your email id?
                       </Typography>
                     </Link>
                   </Box>
                   <CustomeButton
-                    label="LOGIN"
-                    className="login-btn"
+                    label="Get Link"
+                    className="get-link-btn"
                     onClick={() => {
                       navigate("/password");
                     }}
@@ -66,12 +69,12 @@ export default function Password() {
             </Grid>
           </Grid>
         </Box>
-      </PasswordBoxStyle>
+      </ForgotPassStyle>
     </GlobleStyle>
   );
 }
 
-const PasswordBoxStyle = styled(Box)({
+const ForgotPassStyle = styled(Box)({
   "& .link-tag": {
     textDecoration: "none",
   },
@@ -86,8 +89,21 @@ const PasswordBoxStyle = styled(Box)({
     gap: "15px",
     padding: "5% 8%",
   },
-  "& .login-btn": {
+  "& .get-link-btn": {
     height: "45px",
-    width: "30%",
+    width: "35%",
+    fontSize:fontSize.h6,
+    fontWeight:fontWeight.semibold,
+    textTransform:'none'
+  },
+  "& .sub-heading-text": {
+    fontWeight: fontWeight.medium,
+  },
+  "& .forgot-pass-text": {
+    fontWeight: fontWeight.bold,
+    fontSize: fontSize.h4,
+    // display: "flex",
+    // justifyContent: "start",
+    // alignItems: "start",
   },
 });

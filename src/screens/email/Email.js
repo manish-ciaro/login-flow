@@ -22,13 +22,15 @@ export default function WelcomeScreen() {
         <Box className="main-container">
           <Grid container style={{ backgroundColor: bgColors.lightBlue }}>
             <Grid item md={6} xl={6} lg={6}>
+              {/* <Box className='circle'></Box> */}
               <Box className="relative flex items-center h-[100vh]">
                 <img
                   src={welcomeImage}
-                  alt="w elcomeImage"
+                  alt="welcomeImage"
                   className="z-10 absolute w-[38vw] h-auto"
                 />
                 <img
+                  alt="eclipse"
                   src={eclipse}
                   className="h-[100vh] w-[50vw] relative bottom-14 z-0 2xl:bottom-16 "
                 />
@@ -94,6 +96,15 @@ const ContainerStyle = styled(Box)({
     width: "38%",
     height: "45px",
   },
+  // '& .circle':{
+  //   borderRight: '20px solid #008C87',
+  //   height:'100vh',
+  //   width:'80%',
+  //   borderRadius: '50%',
+  //   boxShadow:' 10px 0px 0px 0px ',
+  //   padding: '5%',
+  //   filter:' drop-shadow(30px 10px 4px #4444dd)',
+  // },
   "& .sso-btn": {
     width: "66%",
     height: "28px",
