@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   bgColors,
   fontSize,
@@ -9,34 +9,44 @@ import { Box, styled, Grid, Typography } from "@mui/material";
 import Input from "../../component/CustomeInput";
 import CustomeButton from "../../component/CustomeButton";
 import welcomeImage from "../../assest/welcome.png";
-import eclipse from "../../assest/eclipse.svg";
 import googleLogo from "../../assest/google-logo.png";
 import office365 from "../../assest/office-365.png";
 import { useNavigate } from "react-router";
 
 export default function WelcomeScreen() {
+  const [email, setEmail] = useState('')
   const navigate = useNavigate();
+  useEffect(() => {
+    storeMail()
+  }, [email]);
+
+  const storeMail = () =>{
+    localStorage.setItem('superAdminUsername', email)
+  }
+
+  const handleChange = (event) => {
+    setEmail(event.target.value)
+  };
+  const handleClick = () => {
+    if(email){ 
+     return navigate("/password");
+    }
+    else return ;
+  };
   return (
     <GlobleStyle>
       <ContainerStyle>
         <Box className="main-container">
           <Grid container style={{ backgroundColor: bgColors.lightBlue }}>
-            <Grid item md={6} xl={6} lg={6}>
-              {/* <Box className='circle'></Box> */}
-              <Box className="relative flex items-center h-[100vh]">
-                <img
-                  src={welcomeImage}
-                  alt="welcomeImage"
-                  className="z-10 absolute w-[38vw] h-auto"
-                />
-                <img
-                  alt="eclipse"
-                  src={eclipse}
-                  className="h-[100vh] w-[50vw] relative bottom-14 z-0 2xl:bottom-16 "
-                />
-              </Box>
+            <Grid item sm={6} xs={6} md={6} xl={6} lg={6} >
+              <Box className="eclipse-style"></Box>
+              <img
+                src={welcomeImage}
+                alt="welcomeImage"
+                className="absolute top-3 w-[36vw] h-auto translate-y-1/4 flex justify-center "
+              />
             </Grid>
-            <Grid item md={5} xl={5} lg={5} className="centered-box-container">
+            <Grid item sm={5} xs={5} md={5} xl={5} lg={5} className="centered-box-container">
               <Box className="centered-box h-4/6 2xl:h-2/3 xl:ml-6 ">
                 <Box className="h-4/5 flex flex-col justify-around ">
                   <Box className="welcome-text">
@@ -44,13 +54,18 @@ export default function WelcomeScreen() {
                       Welcome!!
                     </Typography>
                   </Box>
-                  <Input placeholder="Enter your email" />
+                  <Input
+                    placeholder="Enter your email"
+                    value={email}
+                    changeHandler={handleChange}
+                  />
                   <CustomeButton
                     label="CONTINUE"
                     className="continue-btn"
-                    onClick={() => {
-                      navigate("/password");
-                    }}
+                    onClick={handleClick}
+
+                    //   () => {
+                    // }
                   />
                   <Box>
                     <Box className="logo-container">
@@ -96,6 +111,7 @@ const ContainerStyle = styled(Box)({
     width: "38%",
     height: "45px",
   },
+
   // '& .circle':{
   //   borderRight: '20px solid #008C87',
   //   height:'100vh',

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   bgColors,
   fontSize,
@@ -9,31 +9,39 @@ import { Box, styled, Grid, Typography, Link } from "@mui/material";
 import Input from "../../component/CustomeInput";
 import CustomeButton from "../../component/CustomeButton";
 import secondImg from "../../assest/image02.png";
-import eclipse from "../../assest/eclipse.svg";
-import { useNavigate } from "react-router";
+import { superAdminPostData } from "../../services/SuperAdmindLogin";
 
 export default function Password() {
-  const navigate = useNavigate();
+  const [password, setPassword] = useState("");
+  
+  const onPasswordChange = (event) => {
+    setPassword(event.target.value)
+
+  };
+
+  const data = {
+    username:localStorage.getItem('superAdminUsername'),
+    password:password
+  }
+
+  const handleDataSubmit = () => {
+    superAdminPostData(data)
+  };
 
   return (
     <GlobleStyle>
       <PasswordBoxStyle>
         <Box className="main-container">
           <Grid container style={{ backgroundColor: bgColors.lightBlue }}>
-            <Grid item md={6} xl={6} lg={6}>
-              <Box className="relative flex items-center h-[100vh]">
-                <img
-                  src={secondImg}
-                  alt="Password screen image"
-                  className="z-10 absolute w-[38vw] h-auto"
-                />
-                <img
-                  src={eclipse}
-                  className=" h-[100vh] w-[50vw] relative bottom-14 z-0 2xl:bottom-16 "
-                />
-              </Box>
+            <Grid item sm={6} xs={6} md={6} xl={6} lg={6}>
+              <Box className="eclipse-style"></Box>
+              <img
+                src={secondImg}
+                alt="second-img"
+                className="absolute top-3 w-[36vw] h-auto translate-y-1/4 flex justify-center "
+              />
             </Grid>
-            <Grid item md={5} xl={5} lg={5} className="centered-box-container">
+            <Grid item sm={5} xs={5} md={5} xl={5} lg={5} className="centered-box-container">
               <Box className="centered-box h-4/6 2xl:h-2/3 xl:ml-6 ">
                 <Box className="h-4/5 flex flex-col justify-around ">
                   <Box className="welcome-text">
@@ -41,9 +49,13 @@ export default function Password() {
                       Welcome Back Aditya
                     </Typography>
                   </Box>
-                  <Input placeholder="Enter your password" />
+                  <Input
+                    placeholder="Enter your password"
+                    value={password}
+                    changeHandler={onPasswordChange}
+                  />
                   <Box className="link-box">
-                    <Link href="/forgot_password" className="link-tag" >
+                    <Link href="/forgot_password" className="link-tag">
                       <Typography className="link-text">
                         Forgot your password?
                       </Typography>
@@ -57,9 +69,7 @@ export default function Password() {
                   <CustomeButton
                     label="LOGIN"
                     className="login-btn"
-                    onClick={() => {
-                      navigate("/password");
-                    }}
+                    onClick={handleDataSubmit}
                   />
                 </Box>
               </Box>

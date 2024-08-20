@@ -28,21 +28,13 @@ const fontWeight = {
 
 const GlobleStyle = styled(Box)({
   "& .main-container": {
-    backgroundColor: "#3498db",
+    backgroundColor: bgColors.darkgreen,
     width: "100vw",
-    height: "92vh",
+    height: "91vh",
     overflow: "hidden",
-
-    // display: 'flex',
-    // flexDirection: 'row',
-    // resize: 'both',
-    // height: 80vh;
-    // width: 75%;
-    // overflow: auto;
   },
   "& .grid-box": {
     gridTemplateColumns: "repeat(auto-fit,minmax(3, 1fr) )",
-    // grid-template-columns: repeat(3, 1fr); /* Flexible columns */
     gridTemplateRows: "auto",
   },
   "& img": {
@@ -56,12 +48,21 @@ const GlobleStyle = styled(Box)({
     flexDirection: "column",
     alignItems: "stretch",
   },
-  "& .circle": {
-    height: " 100vh",
-    top: "-8vh",
-    position: "relative",
-    width: "50vw",
+
+  "& .eclipse-style": {
+    backgroundColor: "white",
+    width: "100%",
+    height: "100vh",
+    borderRight: "1px inset #008C87",
+    borderRadius: "0 50% 50% 0",
+    boxShadow: " 25px -4px 0px 0px #008C87",
+    transform: "scaleY(1.2)",
+    // transform: " translate(15px, -18px)",
+    position: " relative",
+    right: "20%",
+    // rotate:'-6deg',
   },
+
   "& .welcome-text": {
     fontWeight: fontWeight.semibold,
     fontSize: fontSize.h4,

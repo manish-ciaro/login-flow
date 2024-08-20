@@ -9,7 +9,6 @@ import { Box, styled, Grid, Typography, Link } from "@mui/material";
 import Input from "../../component/CustomeInput";
 import CustomeButton from "../../component/CustomeButton";
 import forgotPasswordImg from "../../assest/forgot-password.png";
-import eclipse from "../../assest/eclipse.svg";
 import { useNavigate } from "react-router";
 
 export default function ForgotPassword() {
@@ -20,17 +19,12 @@ export default function ForgotPassword() {
         <Box className="main-container">
           <Grid container style={{ backgroundColor: bgColors.lightBlue }}>
             <Grid item md={6} xl={6} lg={6}>
-              <Box className="relative flex items-center h-[100vh]">
-                <img
-                  src={forgotPasswordImg}
-                  alt="Password-screen"
-                  className="z-10 absolute w-[38vw] h-auto"
-                />
-                <img alt="eclipse"
-                  src={eclipse}
-                  className=" h-[100vh] w-[50vw] relative bottom-14 z-0 2xl:bottom-16 "
-                />
-              </Box>
+            <Box className="eclipse-style"></Box>
+              <img
+                src={forgotPasswordImg}
+                alt="forgotPasswordImg"
+                className="absolute top-3 w-[36vw] h-auto translate-y-1/4 flex justify-center "
+              />
             </Grid>
             <Grid item md={5} xl={5} lg={5} className="centered-box-container">
               <Box className="centered-box h-4/6 2xl:h-2/3 xl:ml-6 ">
@@ -61,7 +55,7 @@ export default function ForgotPassword() {
                     label="Get Link"
                     className="get-link-btn"
                     onClick={() => {
-                      navigate("/password");
+                      navigate("/verify_otp");
                     }}
                   />
                 </Box>
@@ -102,8 +96,5 @@ const ForgotPassStyle = styled(Box)({
   "& .forgot-pass-text": {
     fontWeight: fontWeight.bold,
     fontSize: fontSize.h4,
-    // display: "flex",
-    // justifyContent: "start",
-    // alignItems: "start",
   },
 });

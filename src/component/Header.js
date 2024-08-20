@@ -17,7 +17,8 @@ export default function Header() {
 const HeaderStyle = styled(Box)({
   "& .header-box": {
     width: '100vw',
-    height: '8vh'
+    height: '9vh',
+    // position:'fixed'
   },
   "& .img-container": {
     position: "relative",
